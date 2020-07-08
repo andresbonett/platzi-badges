@@ -1,10 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import 'bootstrap/dist/css/bootstrap.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import "bootstrap/dist/css/bootstrap.css";
 
-import './global.css';
-import App from './components/App';
+import "./global.css";
+// import App from './components/App';
 
-const container = document.getElementById('app');
+const App = <h1>Hello Andres </h1>;
 
-ReactDOM.render(<App />, container);
+const container = document.getElementById("app");
+
+ReactDOM.render(App, container);
