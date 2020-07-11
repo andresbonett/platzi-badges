@@ -1,8 +1,7 @@
 import React from "react";
 import "./styles/Badges.css";
 import confLogo from "../images/platziconf-logo.svg";
-import NavBar from "../components/NavBar";
-import Badge from "../components/Badge";
+import BadgesList from "../components/BadgesList";
 import { Link } from "react-router-dom";
 
 class Badges extends React.Component {
@@ -43,9 +42,7 @@ class Badges extends React.Component {
 
   render() {
     return (
-      <div>
-        <NavBar />
-
+      <React.Fragment>
         <div className="Badges">
           <div className="Badges__hero">
             <div className="Badges__container">
@@ -60,7 +57,7 @@ class Badges extends React.Component {
 
         <div className="Badges__container">
           <div className="Badges__buttons">
-            <Link to="/badges/new" className="btn btn-primary">
+            <Link to="/badge/new" className="btn btn-primary">
               New Badge
             </Link>
           </div>
@@ -69,7 +66,7 @@ class Badges extends React.Component {
               <ul className="list-unstyled">
                 {this.state.data.map((badge) => {
                   return (
-                    <Badge
+                    <BadgesList
                       key={badge.id}
                       firstName={badge.firstName}
                       lastName={badge.lastName}
@@ -83,7 +80,7 @@ class Badges extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }
