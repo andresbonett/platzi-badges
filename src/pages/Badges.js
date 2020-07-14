@@ -29,11 +29,7 @@ function Badges() {
   }, []);
 
   if (state.loading) {
-    return (
-      <div className="loader">
-        <Loader />
-      </div>
-    );
+    return <Loader />;
   }
 
   if (state.error !== null) {
