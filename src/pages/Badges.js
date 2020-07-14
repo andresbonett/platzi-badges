@@ -46,7 +46,7 @@ function Badges() {
         <div className="Badges__container loader">
           <h3>No badges were found</h3>
           <div className="Badges__buttons">
-            <Link to="/badge/new" className="btn btn-primary">
+            <Link to="/badges/new" className="btn btn-primary">
               Create New Badge
             </Link>
           </div>
@@ -67,7 +67,7 @@ function Badges() {
 
       <div className="Badges__container">
         <div className="Badges__buttons">
-          <Link to="/badge/new" className="btn btn-primary">
+          <Link to="/badges/new" className="btn btn-primary">
             New Badge
           </Link>
         </div>

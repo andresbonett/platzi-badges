@@ -20,7 +20,7 @@ function Home() {
               <br />
               <h1>PRINT YOUR BADGES</h1>
               <p>The easiest way to manage your conference</p>
-              <Link to="/badge" className="btn btn-primary">
+              <Link to="/badges" className="btn btn-primary">
                 Start now
               </Link>
               <br />

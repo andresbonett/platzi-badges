@@ -12,8 +12,8 @@ function App() {
       <Layout>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/badge" component={Badges} />
-          <Route exact path="/badge/new" component={BadgeNew} />
+          <Route exact path="/badges" component={Badges} />
+          <Route exact path="/badges/new" component={BadgeNew} />
           <Route component={Error404} />
         </Switch>
       </Layout>

@@ -40,7 +40,7 @@ function BadgeNew(props) {
       setState((prev) => {
         return { ...prev, loading: false };
       });
-      props.history.push("/badge");
+      props.history.push("/badges");
     } catch (err) {
       setState((prev) => {
         return { ...prev, loading: false, error: `${err}` };
