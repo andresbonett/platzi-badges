@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import Loader from "../components/Loader";
 import API from "../api";
 
-function Badges(props) {
+function Badges() {
   const [state, setState] = useState({
     loading: true,
     error: null,
@@ -62,7 +62,7 @@ function Badges(props) {
                     lastName={badge.lastName}
                     jobTitle={badge.jobTitle}
                     twitter={badge.twitter}
-                    avatarUrl={badge.avatarUrl}
+                    email={badge.email}
                   />
                 );
               })}
