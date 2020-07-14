@@ -18,6 +18,7 @@ function BadgeForm(props) {
             type="text"
             name="firstName"
             value={props.formValues.firstName}
+            required
           />
         </div>
 
@@ -29,6 +30,7 @@ function BadgeForm(props) {
             type="text"
             name="lastName"
             value={props.lastname}
+            required
           />
         </div>
 
@@ -40,6 +42,7 @@ function BadgeForm(props) {
             type="email"
             name="email"
             value={props.email}
+            required
           />
         </div>
 
@@ -51,6 +54,7 @@ function BadgeForm(props) {
             type="text"
             name="jobTitle"
             value={props.jobTitle}
+            required
           />
         </div>
 
@@ -68,6 +72,7 @@ function BadgeForm(props) {
         <button onClick={handleClick} className="btn btn-primary">
           Save
         </button>
+        {props.error && <div>{props.error}</div>}
       </form>
     </React.Fragment>
   );

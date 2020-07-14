@@ -7,7 +7,7 @@ import API from "../api";
 import md5 from "md5";
 import Loader from "../components/Loader";
 
-function BadgeNew() {
+function BadgeNew(props) {
   const [state, setState] = useState({
     form: {
       firstName: "",
@@ -16,6 +16,8 @@ function BadgeNew() {
       jobTitle: "",
       twitter: "",
     },
+    loading: false,
+    error: null,
   });
 
   const handleChange = (e) => {
@@ -38,10 +40,12 @@ function BadgeNew() {
       setState((prev) => {
         return { ...prev, loading: false };
       });
-    } catch (error) {
+      props.history.push("/badge");
+    } catch (err) {
       setState((prev) => {
-        return { ...prev, loading: false, error: error };
+        return { ...prev, loading: false, error: `${err}` };
       });
+      console.log("error: " + err);
     }
   };
 
@@ -67,6 +71,7 @@ function BadgeNew() {
               onChange={handleChange}
               onSubmit={handleSubmit}
               formValues={state.form}
+              error={state.error}
             />
           </div>
         </div>

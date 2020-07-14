@@ -17,7 +17,7 @@ function Badges() {
     setState({ loading: true, error: null });
     try {
       const data = await API.badges.list();
-      setState({ loading: false, data: data });
+      setState({ loading: false, data: data, error: null });
     } catch (error) {
       console.log("error: " + error);
       setState({ loading: false, error: error });
@@ -34,6 +34,27 @@ function Badges() {
         <Loader />
       </div>
     );
+  if (state.error !== null)
+    return (
+      <div className="loader">
+        <h3>Ups! No connection established</h3>
+      </div>
+    );
+
+  if (state.data.length === 0) {
+    return (
+      <React.Fragment>
+        <div className="Badges__container loader">
+          <h3>No badges were found</h3>
+          <div className="Badges__buttons">
+            <Link to="/badge/new" className="btn btn-primary">
+              Create New Badge
+            </Link>
+          </div>
+        </div>
+      </React.Fragment>
+    );
+  }
 
   return (
     <React.Fragment>
