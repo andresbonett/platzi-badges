@@ -1,16 +1,13 @@
 import React from "react";
 
 import "./styles/BadgesList.css";
+import Gravatar from "./Gravatar";
 
 function BadgesList(props) {
   return (
     <li className="BadgesList">
       <div className="BadgesListItem ">
-        <img
-          className="BadgesListItem__avatar"
-          src={props.avatarUrl}
-          alt="avatar"
-        />
+        <Gravatar className="BadgesListItem__avatar" email={props.email} />
         <div>
           <h4>
             <span>{props.firstName} </span>
