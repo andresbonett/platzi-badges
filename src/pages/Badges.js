@@ -4,30 +4,28 @@ import confLogo from "../images/platziconf-logo.svg";
 import BadgesList from "../components/BadgesList";
 import { Link } from "react-router-dom";
 import Loader from "../components/Loader";
+import API from "../api";
 
 function Badges(props) {
-  console.log("1. constructor()");
-
   const [state, setState] = useState({
     loading: true,
     error: null,
     data: [],
   });
 
-  const fetchData = async (url) => {
+  const fetchData = async () => {
     setState({ loading: true, error: null });
     try {
-      const API = await fetch(url);
-      const data = await API.json();
-      console.log(data);
+      const data = await API.badges.list();
       setState({ loading: false, data: data });
     } catch (error) {
+      console.log("error: " + error);
       setState({ loading: false, error: error });
     }
   };
 
   useEffect(() => {
-    fetchData("http://localhost:3001/badges");
+    fetchData();
   }, []);
 
   if (state.loading)
