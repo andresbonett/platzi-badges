@@ -2,18 +2,14 @@ import React from "react";
 
 function BadgeForm(props) {
   const handleClick = (e) => {
-    console.log("Clicked");
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
+    console.log("clicked");
   };
 
   return (
     <React.Fragment>
       <h1>New Attendant</h1>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={props.onSubmit}>
         <div className="form-group">
           <label>First Name</label>
           <input

@@ -3,14 +3,17 @@ import "./styles/BadgeNew.css";
 import header from "../images/badge-header.svg";
 import Badge from "../components/Badge";
 import BadgeForm from "../components/BadgeForm";
+import API from "../api";
+import md5 from "md5";
+import Loader from "../components/Loader";
 
 function BadgeNew() {
   const [state, setState] = useState({
     form: {
       firstName: "",
       lastName: "",
-      jobTitle: "",
       email: "",
+      jobTitle: "",
       twitter: "",
     },
   });
@@ -22,6 +25,24 @@ function BadgeNew() {
         [e.target.name]: e.target.value,
       },
     });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const badgeId = md5(state.form.email);
+    try {
+      setState((prev) => {
+        return { ...prev, loading: true };
+      });
+      await API.badges.create({ id: badgeId, ...state.form });
+      setState((prev) => {
+        return { ...prev, loading: false };
+      });
+    } catch (error) {
+      setState((prev) => {
+        return { ...prev, loading: false, error: error };
+      });
+    }
   };
 
   return (
@@ -37,11 +58,16 @@ function BadgeNew() {
               lastName={state.form.lastName || "Last Name"}
               jobTitle={state.form.jobTitle || "JobTitle"}
               twitter={state.form.twitter || "userTwitter"}
-              avatarUrl="https://s.gravatar.com/avatar/c9b4b6387c83c86c4f4191bc19f7ac7d?s=80"
+              email={state.form.email}
             />
+            {state.loading && <Loader />}
           </div>
           <div className="col-6">
-            <BadgeForm onChange={handleChange} formValues={state.form} />
+            <BadgeForm
+              onChange={handleChange}
+              onSubmit={handleSubmit}
+              formValues={state.form}
+            />
           </div>
         </div>
       </div>
