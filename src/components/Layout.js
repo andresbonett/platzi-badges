@@ -1,11 +1,12 @@
 import React from "react";
 import NavBar from "./NavBar";
+import "./styles/Layout.css";
 
 function Layout(props) {
   return (
     <React.Fragment>
       <NavBar />
-      {props.children}
+      <div className="Layout">{props.children}</div>
     </React.Fragment>
   );
 }

@@ -72,7 +72,7 @@ function BadgeForm(props) {
         <button onClick={handleClick} className="btn btn-primary">
           Save
         </button>
-        {props.error && <div>{props.error}</div>}
+        {props.error && <div className="text-danger">{props.error}</div>}
       </form>
     </React.Fragment>
   );

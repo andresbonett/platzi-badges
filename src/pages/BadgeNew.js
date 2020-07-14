@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./styles/BadgeNew.css";
-import header from "../images/badge-header.svg";
+import header from "../images/platziconf-logo.svg";
 import Badge from "../components/Badge";
 import BadgeForm from "../components/BadgeForm";
 import API from "../api";
@@ -52,7 +52,7 @@ function BadgeNew(props) {
   return (
     <React.Fragment>
       <div className="BadgeNew__hero">
-        <img className="img-fluid" src={header} alt="" />
+        <img className="BadgeNew__hero-image" src={header} alt="" />
       </div>
       <div className="container">
         <div className="row">
