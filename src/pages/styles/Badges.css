@@ -28,3 +28,10 @@
   justify-content: flex-end;
   margin-bottom: 1rem;
 }
+
+.loader {
+  height: calc(100vh - 60px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

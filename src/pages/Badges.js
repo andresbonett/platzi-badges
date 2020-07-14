@@ -37,7 +37,12 @@ class Badges extends React.Component {
   render() {
     console.log("2. render()");
 
-    if (this.state.loading) return <Loader />;
+    if (this.state.loading)
+      return (
+        <div className="loader">
+          <Loader />
+        </div>
+      );
 
     return (
       <React.Fragment>
