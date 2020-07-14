@@ -49,6 +49,13 @@ function BadgeNew(props) {
     }
   };
 
+  if (state.loading)
+    return (
+      <div className="loader">
+        <Loader />
+      </div>
+    );
+
   return (
     <React.Fragment>
       <div className="BadgeNew__hero">

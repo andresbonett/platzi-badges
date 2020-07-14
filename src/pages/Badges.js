@@ -28,18 +28,21 @@ function Badges() {
     fetchData();
   }, []);
 
-  if (state.loading)
+  if (state.loading) {
     return (
       <div className="loader">
         <Loader />
       </div>
     );
-  if (state.error !== null)
+  }
+
+  if (state.error !== null) {
     return (
       <div className="loader">
         <h3>Ups! No connection established</h3>
       </div>
     );
+  }
 
   if (state.data.length === 0) {
     return (
