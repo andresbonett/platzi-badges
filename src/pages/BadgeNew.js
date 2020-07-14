@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./styles/BadgeNew.css";
 import header from "../images/badge-header.svg";
 import Badge from "../components/Badge";
 import BadgeForm from "../components/BadgeForm";
 
-class BadgeNew extends React.Component {
-  state = {
+function BadgeNew() {
+  const [state, setState] = useState({
     form: {
       firstName: "",
       lastName: "",
@@ -13,45 +13,40 @@ class BadgeNew extends React.Component {
       email: "",
       twitter: "",
     },
-  };
+  });
 
-  handleChange = (e) => {
-    this.setState({
+  const handleChange = (e) => {
+    setState({
       form: {
-        ...this.state.form,
+        ...state.form,
         [e.target.name]: e.target.value,
       },
     });
   };
 
-  render() {
-    return (
-      <React.Fragment>
-        <div className="BadgeNew__hero">
-          <img className="img-fluid" src={header} alt="" />
-        </div>
-        <div className="container">
-          <div className="row">
-            <div className="col-6">
-              <Badge
-                firstName={this.state.form.firstName}
-                lastName={this.state.form.lastName}
-                jobTitle={this.state.form.jobTitle}
-                twitter={this.state.form.twitter}
-                avatarUrl="https://s.gravatar.com/avatar/c9b4b6387c83c86c4f4191bc19f7ac7d?s=80"
-              />
-            </div>
-            <div className="col-6">
-              <BadgeForm
-                onChange={this.handleChange}
-                formValues={this.state.form}
-              />
-            </div>
+  return (
+    <React.Fragment>
+      <div className="BadgeNew__hero">
+        <img className="img-fluid" src={header} alt="" />
+      </div>
+      <div className="container">
+        <div className="row">
+          <div className="col-6">
+            <Badge
+              firstName={state.form.firstName || "First Name"}
+              lastName={state.form.lastName || "Last Name"}
+              jobTitle={state.form.jobTitle || "JobTitle"}
+              twitter={state.form.twitter || "userTwitter"}
+              avatarUrl="https://s.gravatar.com/avatar/c9b4b6387c83c86c4f4191bc19f7ac7d?s=80"
+            />
+          </div>
+          <div className="col-6">
+            <BadgeForm onChange={handleChange} formValues={state.form} />
           </div>
         </div>
-      </React.Fragment>
-    );
-  }
+      </div>
+    </React.Fragment>
+  );
 }
 
 export default BadgeNew;
