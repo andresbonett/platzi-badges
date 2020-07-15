@@ -75,16 +75,7 @@ function Badges() {
           <div className="Badges__container">
             <ul className="list-unstyled">
               {state.data.map((badge) => {
-                return (
-                  <BadgesList
-                    key={badge.id}
-                    firstName={badge.firstName}
-                    lastName={badge.lastName}
-                    jobTitle={badge.jobTitle}
-                    twitter={badge.twitter}
-                    email={badge.email}
-                  />
-                );
+                return <BadgesList badge={badge} />;
               })}
             </ul>
           </div>

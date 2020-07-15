@@ -1,14 +1,16 @@
-import React, { useState } from "react";
-import "./styles/BadgeNew.css";
+import React, { useState, useEffect } from "react";
+import "./styles/BadgeEdit.css";
 import header from "../images/platziconf-logo.svg";
 import Badge from "../components/Badge";
 import BadgeForm from "../components/BadgeForm";
 import API from "../api";
-import md5 from "md5";
 import Loader from "../components/Loader";
+import Error404 from "./Error404";
 
-function BadgeNew(props) {
+function BadgeEdit(props) {
   const [state, setState] = useState({
+    loading: true,
+    error: null,
     form: {
       firstName: "",
       lastName: "",
@@ -16,9 +18,27 @@ function BadgeNew(props) {
       jobTitle: "",
       twitter: "",
     },
-    loading: false,
-    error: null,
   });
+  console.log(state);
+  useEffect(() => {
+    const fetchData = async () => {
+      setState({ loading: true, error: null });
+      try {
+        const data = await API.badges.read(props.match.params.badgeId);
+        setState((prev) => {
+          return { ...prev, loading: false, form: data };
+        });
+
+        console.log("Try");
+      } catch (error) {
+        console.log("Catch");
+        setState((prev) => {
+          return { loading: false, error: `${error.message}`, ...prev };
+        });
+      }
+    };
+    fetchData();
+  }, [props.match.params.badgeId]);
 
   const handleChange = (e) => {
     setState({
@@ -31,12 +51,11 @@ function BadgeNew(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const badgeId = md5(state.form.email);
     try {
       setState((prev) => {
         return { ...prev, loading: true };
       });
-      await API.badges.create({ id: badgeId, ...state.form });
+      await API.badges.update(props.match.params.badgeId, state.form);
       setState((prev) => {
         return { ...prev, loading: false };
       });
@@ -45,16 +64,16 @@ function BadgeNew(props) {
       setState((prev) => {
         return { ...prev, loading: false, error: `${err}` };
       });
-      console.log("error: " + err);
     }
   };
 
   if (state.loading) return <Loader />;
+  if (Object.keys(state.form).length === 0) return <Error404 />;
 
   return (
     <React.Fragment>
-      <div className="BadgeNew__hero">
-        <img className="BadgeNew__hero-image" src={header} alt="" />
+      <div className="BadgeEdit__hero">
+        <img className="BadgeEdit__hero-image" src={header} alt="" />
       </div>
       <div className="container">
         <div className="row">
@@ -69,7 +88,7 @@ function BadgeNew(props) {
             {state.loading && <Loader />}
           </div>
           <div className="col-6">
-            <h1>New Attendant</h1>
+            <h1>Edit Attendant</h1>
             <BadgeForm
               onChange={handleChange}
               onSubmit={handleSubmit}
@@ -83,4 +102,4 @@ function BadgeNew(props) {
   );
 }
 
-export default BadgeNew;
+export default BadgeEdit;

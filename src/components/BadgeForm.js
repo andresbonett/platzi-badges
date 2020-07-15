@@ -7,8 +7,6 @@ function BadgeForm(props) {
 
   return (
     <React.Fragment>
-      <h1>New Attendant</h1>
-
       <form onSubmit={props.onSubmit}>
         <div className="form-group">
           <label>First Name</label>
@@ -29,7 +27,7 @@ function BadgeForm(props) {
             className="form-control"
             type="text"
             name="lastName"
-            value={props.lastname}
+            value={props.formValues.lastName}
             required
           />
         </div>
@@ -41,7 +39,7 @@ function BadgeForm(props) {
             className="form-control"
             type="email"
             name="email"
-            value={props.email}
+            value={props.formValues.email}
             required
           />
         </div>
@@ -53,7 +51,7 @@ function BadgeForm(props) {
             className="form-control"
             type="text"
             name="jobTitle"
-            value={props.jobTitle}
+            value={props.formValues.jobTitle}
             required
           />
         </div>
@@ -65,7 +63,7 @@ function BadgeForm(props) {
             className="form-control"
             type="text"
             name="twitter"
-            value={props.twitter}
+            value={props.formValues.twitter}
           />
         </div>
 

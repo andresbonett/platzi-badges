@@ -25,7 +25,7 @@ const api = {
   badges: {
     list() {
       // return [];
-      // return new Error("Errroooooor");
+      // throw new Error("Error: 500");
       return callApi("/badges");
     },
     create(badge) {
