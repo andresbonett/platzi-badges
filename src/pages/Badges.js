@@ -5,6 +5,7 @@ import BadgesList from "../components/BadgesList";
 import { Link } from "react-router-dom";
 import Loader from "../components/Loader";
 import API from "../api";
+import MiniLoader from "../components/MiniLoader";
 
 function Badges() {
   const [state, setState] = useState({
@@ -14,21 +15,28 @@ function Badges() {
   });
 
   const fetchData = async () => {
-    setState({ loading: true, error: null });
+    setState((prev) => {
+      return { ...prev, loading: true, error: null };
+    });
     try {
       const data = await API.badges.list();
-      setState({ loading: false, data: data, error: null });
+      setState((prev) => {
+        return { ...prev, loading: false, data: data, error: null };
+      });
     } catch (error) {
-      console.log("error: " + error);
       setState({ loading: false, error: error });
     }
   };
 
   useEffect(() => {
     fetchData();
+
+    const intervalId = setInterval(() => fetchData(), 5000);
+
+    return () => clearInterval(intervalId);
   }, []);
 
-  if (state.loading) {
+  if (state.loading && state.data.length === 0) {
     return <Loader />;
   }
 
@@ -80,6 +88,7 @@ function Badges() {
             </ul>
           </div>
         </div>
+        <div>{state.loading && <MiniLoader />}</div>
       </div>
     </React.Fragment>
   );

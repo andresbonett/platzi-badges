@@ -19,7 +19,6 @@ function BadgeEdit(props) {
       twitter: "",
     },
   });
-  console.log(state);
   useEffect(() => {
     const fetchData = async () => {
       setState({ loading: true, error: null });
@@ -28,10 +27,7 @@ function BadgeEdit(props) {
         setState((prev) => {
           return { ...prev, loading: false, form: data };
         });
-
-        console.log("Try");
       } catch (error) {
-        console.log("Catch");
         setState((prev) => {
           return { loading: false, error: `${error.message}`, ...prev };
         });
