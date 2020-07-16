@@ -1,42 +1,6 @@
 {
   "badges": [
     {
-      "id": "0bc31026-e714-4fc6-a511-aee827ed6c35",
-      "firstName": "Barney",
-      "lastName": "West",
-      "email": "Brice.Schoen41@gmail.com",
-      "jobTitle": "Regional Accountability",
-      "twitter": "BarneyWest17794",
-      "avatarUrl": "https://www.gravatar.com/avatar/f0698534eb7336a648996530073f88a0?d=identicon"
-    },
-    {
-      "id": "b4583dad-0cd9-4eae-b3dd-77471544cba1",
-      "firstName": "Savanah",
-      "lastName": "Mayer",
-      "email": "Zoe11@hotmail.com",
-      "jobTitle": "Investor Program Administrator",
-      "twitter": "SavanahMayer39069-0181",
-      "avatarUrl": "https://www.gravatar.com/avatar/0d0a3061a5ffbc69df002aa8c94dfbcb?d=identicon"
-    },
-    {
-      "id": "1ef9b6c3-49f3-4f4e-afd6-38266e64638d",
-      "firstName": "Baron",
-      "lastName": "Schuster",
-      "email": "Harrison61@gmail.com",
-      "jobTitle": "Regional Communications",
-      "twitter": "BaronSchuster",
-      "avatarUrl": "https://www.gravatar.com/avatar/24b7064ce8960bcb86eea8faf36dde52?d=identicon"
-    },
-    {
-      "id": "3bc60173-5f3b-4684-a922-0e2e2088f908",
-      "firstName": "Harvey",
-      "lastName": "Prosacco",
-      "email": "Leda25@hotmail.com",
-      "jobTitle": "Product Solutions Strategist",
-      "twitter": "HarveyProsacco88562-5211",
-      "avatarUrl": "https://www.gravatar.com/avatar/7210da77f64cdb5fd1acbd5107004334?d=identicon"
-    },
-    {
       "id": "d2c59630-8937-47eb-b68d-5c2b6500ebe9",
       "firstName": "Tony",
       "lastName": "Keebler",
@@ -440,15 +404,6 @@
       "jobTitle": "Customer Communications Consultant",
       "twitter": "ConsueloCollins30715",
       "avatarUrl": "https://www.gravatar.com/avatar/75ff842d8d1f0d851185d695741166eb?d=identicon"
-    },
-    {
-      "id": "93ecfd01-c274-48a9-b65f-a555c62dfd22",
-      "firstName": "Merritt",
-      "lastName": "Stiedemann",
-      "email": "Zora81@yahoo.com",
-      "jobTitle": "National Creative Producer",
-      "twitter": "MerrittStiedemann92517",
-      "avatarUrl": "https://www.gravatar.com/avatar/9f38ea79f07a5029a54155bc63834704?d=identicon"
     }
   ]
 }
