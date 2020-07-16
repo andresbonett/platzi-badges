@@ -10,7 +10,7 @@ function BadgesList(props) {
     <li className="BadgesList">
       <Link
         className="text-reset text-decoration-none"
-        to={`/badges/${badge.id}/edit`}
+        to={`/badges/${badge.id}`}
       >
         <div className="BadgesListItem ">
           <Gravatar className="BadgesListItem__avatar" email={badge.email} />

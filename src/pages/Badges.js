@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./styles/Badges.css";
 import confLogo from "../images/platziconf-logo.svg";
 import BadgesList from "../components/BadgesList";
-import { Link } from "react-router-dom";
+import MiniLoader from "../components/MiniLoader";
 import Loader from "../components/Loader";
 import API from "../api";
-import MiniLoader from "../components/MiniLoader";
 
 function Badges() {
   const [state, setState] = useState({
