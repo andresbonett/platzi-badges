@@ -4,7 +4,7 @@ import "./styles/Loader.css";
 
 function Loader() {
   return (
-    <div className="loader">
+    <div className="lds-grid-container">
       <div className="lds-grid">
         <div />
         <div />
