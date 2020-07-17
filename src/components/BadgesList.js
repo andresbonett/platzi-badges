@@ -1,12 +1,29 @@
-import React from "react";
-
-import "./styles/BadgesList.css";
-
+import React, { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-
+import "./styles/BadgesList.css";
 import BadgesListItems from "./BadgesListItems";
 
+function useSearchBadges(badges) {
+  const [query, setQuery] = useState("");
+  const [filteredBadges, setFilteredBadges] = useState(badges);
+
+  useMemo(() => {
+    const result = badges.filter((badge) => {
+      return `${badge.firstName} ${badge.lastName}`
+        .toLowerCase()
+        .includes(query.toLowerCase());
+    });
+    setFilteredBadges(result);
+  }, [badges, query]);
+
+  return [query, setQuery, filteredBadges];
+}
+
 function BadgesList(props) {
+  const badges = props.data;
+
+  const [query, setQuery, filteredBadges] = useSearchBadges(badges);
+
   return (
     <div className="BadgesList">
       <div className="form-group">
@@ -14,14 +31,14 @@ function BadgesList(props) {
         <input
           type="text"
           className="form-control"
-          value=""
+          value={query}
           onChange={(e) => {
-            console.log(e.target.value);
+            setQuery(e.target.value);
           }}
         />
       </div>
       <ul className="list-unstyled">
-        {props.data.map((badge) => {
+        {filteredBadges.map((badge) => {
           return (
             <li key={badge.id} className="BadgesList">
               <Link
